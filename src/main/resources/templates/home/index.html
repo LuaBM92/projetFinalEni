@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" 
+        xmlns:th="http://www.thymeleaf.org"
+        th:replace="~{layouts/main-layout :: layout(~{::titre}, ~{::section})}" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carte</title>
+    <link rel="stylesheet" href="/bootstrap.css">
+    <title>Carte des pizzas</title>
 </head>
 <body>
-    <header>
-        <a href="/ajouterPizza"> Ajouter une pizza</a>
-        <a href="/panier"> Panier</a>
-
-
-    </header>
-    <h1>Carte des pizzas</h1>
  <main>
-    <h2>Pizza 1</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsam culpa possimus aut! Cumque eos pariatur nostrum quos assumenda a mollitia labore expedita accusantium. Maxime adipisci unde quia magni quas!</p>
-    <a>Modifier</a>
-    <a>Supprimer</a>
-    <h2>Pizza 2</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsam culpa possimus aut! Cumque eos pariatur nostrum quos assumenda a mollitia labore expedita accusantium. Maxime adipisci unde quia magni quas!</p>
-    <a>Modifier</a>
-    <a>Supprimer</a>
-    <h2>Pizza 3</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ipsam culpa possimus aut! Cumque eos pariatur nostrum quos assumenda a mollitia labore expedita accusantium. Maxime adipisci unde quia magni quas!</p>
-    <a>Modifier</a>
-    <a>Supprimer</a>
-
+    <titre>Carte des pizzas</titre>
+    <section>
+        <div class="container"></div>
+        <div class="row">
+        <span th:each=" produit : ${produits}">
+        <div class="col-lg-6 mb-4">
+        <div class="card m-3 grid gap-3" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" th:text ="${produit.nom}"></h5>
+              <p class="card-text" th:text ="${produit.description}"></p>
+              <a class="btn btn-primary" th:href="@{'/modifier/' + ${produit.id}}">Modifier</a></td>
+              <a  class="btn btn-primary" th:href="@{'/supprimerProduit/' + ${produit.id}}">Supprimer</a></td>
+            </div>
+          </div>
+        </div>
+        </span>
+        </div>
+    </div>
+    </section>
 </main>   
 </body>
 </html>

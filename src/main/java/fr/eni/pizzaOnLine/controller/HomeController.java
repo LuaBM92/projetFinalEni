@@ -1,14 +1,22 @@
 package fr.eni.pizzaOnLine.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
+import fr.eni.pizzaOnLine.services.ProduitService;
 
 @Controller
 public class HomeController {
 	
+
+	@Autowired
+	private ProduitService produitService;
+	
 	@GetMapping("/carte")
-	public String home() {
+	public String tousLesProduits(Model model) {
+		model.addAttribute("produits", produitService.consulterProduits());
 			return "/home/index";
 		}
 	
