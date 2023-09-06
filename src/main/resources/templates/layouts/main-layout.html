@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link active" aria-current="page" th:href="@{/ajouterProduit}">Ajouter un produit</a>
-          <a class="nav-link" href="#">Commander</a>
+          <a class="nav-link" th:href="@{/commander}">Commander</a>
           <a class="nav-link" th:href="@{/panier}">Panier</a>
         </div>
       </div>
@@ -28,7 +28,7 @@
   </nav>
 </header>
 
-<main class="d-flex flex-column">
+<main >
     <h1 th:replace="${titre}" class="m-3">Titre de la page</h1>
     <div th:replace="${content}">
         <p>Contenu de la page</p>

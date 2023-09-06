@@ -43,16 +43,10 @@ public class ProduitServiceImplDB implements ProduitService {
 
 	@Override
 	public void enregistrerProduit(Produit produit) {
-		 Produit produitExistant = produitRepo.findById(produit.getId()).orElse(null);
-		 
-		 if (produitExistant != null) {
-			 produitExistant.setNom(produit.getNom());
-			 produitExistant.setDescription(produit.getDescription());
-	            produitRepo.save(produitExistant);
-	        } else {
-		  produitRepo.save(produit);
-	        }
-	}
+		produitRepo.save(produit);
+	        }	
+	
+	
 
 	@Override
 	public void supprimerProduit(Long id) {

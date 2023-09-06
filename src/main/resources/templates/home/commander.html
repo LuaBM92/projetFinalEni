@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" 
+        xmlns:th="http://www.thymeleaf.org"
+        th:replace="~{layouts/main-layout :: layout(~{::titre}, ~{::section})}" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap.css">
+    <title>Commander</title>
+</head>
+<body>
+ <main>
+    <titre>Commander</titre>
+    <section>
+        <div class="container">
+        <div class="row">
+        <div th:each=" produit : ${produits}" class="col-lg-3 mb-4">
+        <div class="card m-3 grid gap-3" style="width: 18rem;">
+            <img src="https://img.cuisineaz.com/1280x720/2018/02/28/i136025-pizza-legere.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" th:text ="${produit.nom}"></h5>
+              <p class="card-text" th:text ="${produit.description}"></p>
+              <p class="card-text" th:text ="${produit.prix + ' euros'}"></p>
+              <form th:action="@{/ajouterPanier}" method="post" th:object="${produit}">
+                <input type="hidden" name="id" th:value="${produit.id}">
+                <div class="form-outline">
+                    <label class="form-label" for="quantite">Quantité souhaitée: </label>
+                    <input type="number" id="quantite" name="quantite" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button></td>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    </section>
+</main>   
+</body>
+</html>

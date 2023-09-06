@@ -21,7 +21,7 @@ public class Commande {
 	private LocalDateTime dateHeurePreparation;
 	
 	@OneToMany
-	private List<DetailCommande> detailCommande = new ArrayList<DetailCommande>();
+	private List<DetailCommande> lstDetailCommande = new ArrayList<DetailCommande>();
 	@ManyToOne
 	private Etat etat;
 	
@@ -37,7 +37,7 @@ public class Commande {
 		this.id = id;
 		this.dateHeureLivraison = dateHeureLivraison;
 		this.dateHeurePreparation = dateHeurePreparation;
-		this.detailCommande = detailCommande;
+		this.lstDetailCommande = detailCommande;
 		this.etat = etat;
 	}
 	public Long getId() {
@@ -59,10 +59,10 @@ public class Commande {
 		this.dateHeurePreparation = dateHeurePreparation;
 	}
 	public List<DetailCommande> getDetailCommande() {
-		return detailCommande;
+		return lstDetailCommande;
 	}
 	public void setDetailCommande(List<DetailCommande> detailCommande) {
-		this.detailCommande = detailCommande;
+		this.lstDetailCommande = detailCommande;
 	}
 	public Etat getEtat() {
 		return etat;
@@ -73,7 +73,7 @@ public class Commande {
 	@Override
 	public String toString() {
 		return "Commande [id=" + id + ", dateHeureLivraison=" + dateHeureLivraison + ", dateHeurePreparation="
-				+ dateHeurePreparation + ", detailCommande=" + detailCommande + ", etat=" + etat + "]";
+				+ dateHeurePreparation + ", detailCommande=" + lstDetailCommande + ", etat=" + etat + "]";
 	}
 	
 	

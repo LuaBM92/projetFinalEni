@@ -20,12 +20,8 @@ public class ProduitController {
 	@Autowired
 	private ProduitService produitService;
 	
-	@GetMapping("/ajouterProduit")
-	public String afficherFormulaire(Model model) {
-		model.addAttribute("produit", new Produit());
-			return "/home/ajouterProduit";
-		}
-
+	
+// Avant mise en place de la BDD
 //	@PostMapping("/enregistrerProduit")
 //	public String ajouterPizza(@ModelAttribute Produit produit) {
 //		produit.setId(index++);
@@ -58,9 +54,7 @@ public class ProduitController {
 	@PostMapping("/enregistrerProduit")
 	public String enregistrerProduit(@RequestParam (required=false)Long id, @ModelAttribute Produit produit, Model model) {
 		if(id == null) {
-			produit.setId(index++);
 			produitService.enregistrerProduit(produit);
-			System.out.println("ici 0" + produit);
 		}else {
 			Produit produitExistant = produitService.consulterProduitParId(id);
 			if(produitExistant==null) {
@@ -68,9 +62,8 @@ public class ProduitController {
 			}
 			produitExistant.setNom(produit.getNom());
 			produitExistant.setDescription(produit.getDescription());
-			System.out.println("ici 1" + produitExistant);
+			produitExistant.setPrix(produit.getPrix());
 			produitService.enregistrerProduit(produitExistant);
-			System.out.println("ici 2" +produitExistant);
 				
 		}
 			return "redirect:/carte";
@@ -85,7 +78,7 @@ public class ProduitController {
 			produit = new Produit();
 		}
 		model.addAttribute("produit", produit);
-		return "home/ajouterPizza";
+		return "home/ajouterProduit";
 	}
 	
 	

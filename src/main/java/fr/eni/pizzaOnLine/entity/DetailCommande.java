@@ -1,19 +1,24 @@
 package fr.eni.pizzaOnLine.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 
 @Entity
 public class DetailCommande {
 
 	@Id
-	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	private int quantite;
 	
 	@OneToOne
 	private Produit produit;
-	@OneToOne
+	
+	@ManyToOne
 	private Commande commande;
 	
 	

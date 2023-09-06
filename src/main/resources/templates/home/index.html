@@ -12,24 +12,23 @@
  <main>
     <titre>Carte des pizzas</titre>
     <section>
-        <div class="container"></div>
+      <div class="container">
         <div class="row">
-        <span th:each=" produit : ${produits}">
-        <div class="col-lg-6 mb-4">
-        <div class="card m-3 grid gap-3" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title" th:text ="${produit.nom}"></h5>
-              <p class="card-text" th:text ="${produit.description}"></p>
-              <a class="btn btn-primary" th:href="@{'/modifier/' + ${produit.id}}">Modifier</a></td>
-              <a  class="btn btn-primary" th:href="@{'/supprimerProduit/' + ${produit.id}}">Supprimer</a></td>
+          <div th:each=" produit : ${produits}" class="col-lg-3 mb-4">
+              <div class="card m-3 grid gap-3" style="width: 18rem;">
+                <img src="https://img.cuisineaz.com/1280x720/2018/02/28/i136025-pizza-legere.webp" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title" th:text ="${produit.nom}"></h5>
+                    <p class="card-text" th:text ="${produit.description}"></p>
+                    <p class="card-text" th:text ="${produit.prix  + ' euros'}"></p>
+                    <a class="btn btn-primary" th:href="@{'/modifier/' + ${produit.id}}">Modifier</a></td>
+                    <a  class="btn btn-primary" th:href="@{'/supprimerProduit/' + ${produit.id}}">Supprimer</a></td>
+                  </div>
             </div>
           </div>
         </div>
-        </span>
-        </div>
-    </div>
+      </div>
     </section>
-</main>   
+  </main>   
 </body>
 </html>

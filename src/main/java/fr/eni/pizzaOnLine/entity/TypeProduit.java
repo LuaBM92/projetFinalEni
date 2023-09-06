@@ -12,38 +12,30 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class TypeProduit {
 	@Id
-	private int id;
+	private Long id;
 	private String libelle;
 	
 	
 	public TypeProduit() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
 
-	public TypeProduit(int id, String libelle) {
+	public TypeProduit(Long id, String libelle) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
-	
 	}
 
 
-
-
-
-
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	
 
 
 	public String getLibelle() {
@@ -55,6 +47,11 @@ public class TypeProduit {
 		this.libelle = libelle;
 	}
 	
+
+
+
+	
+
 	
 	
 	
