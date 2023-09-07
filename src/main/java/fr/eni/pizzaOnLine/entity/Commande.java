@@ -73,10 +73,12 @@ public class Commande {
 	public void setEtat(Etat etat) {
 		this.etat = etat;
 	}
+
+
 	@Override
 	public String toString() {
 		return "Commande [id=" + id + ", dateHeureLivraison=" + dateHeureLivraison + ", dateHeurePreparation="
-				+ dateHeurePreparation + ", detailCommande=" + lstDetailCommande + ", etat=" + etat + "]";
+				+ dateHeurePreparation + ", lstDetailCommande=" + lstDetailCommande + ", etat=" + etat + "]";
 	}
 	
 	

@@ -64,8 +64,9 @@ public class DetailCommande {
 
 	@Override
 	public String toString() {
-		return "DetailCommande [quantite=" + quantite + ", produit=" + produit + ", commande=" + commande + "]";
+		return "DetailCommande [id=" + id + ", quantite=" + quantite + ", produit=" + produit +"]";
 	}
+
 	
 	
 	
