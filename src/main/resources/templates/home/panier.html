@@ -9,7 +9,20 @@
 <body>
     <h1>Mon panier</h1>
  <main>
-   <a href="/carte">Carte des pizzas</a>
+
+    <a href="/carte">Carte des pizzas</a>
+
+    <div th:each=" detailCommande : ${lstDetailCommande}" class="col-lg-3 mb-4">
+    
+        <p class="card-text" th:text ="${detailCommande}"></p>
+    
+    </div>
+     
+    
+
+
+
+
 </main>   
 </body>
 </html>
