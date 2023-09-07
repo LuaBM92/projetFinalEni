@@ -59,6 +59,7 @@ public class CommandeController {
 			//TODO verifier que la qualtite n'est pas négative
 			DetailCommande nouveauProduitCommande = new DetailCommande();
 			nouveauProduitCommande.setCommande(panier);
+			//nouveauProduitCommande.setProduit(produit);
 			nouveauProduitCommande.setProduit(produitService.consulterProduitParId(id));
 			nouveauProduitCommande.setQuantite(quantite);
 			lstDetailCommande.add(nouveauProduitCommande);
