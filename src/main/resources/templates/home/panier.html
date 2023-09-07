@@ -15,11 +15,29 @@
     <section>
       <a href="/carte">Carte des pizzas</a>
 
-    <div th:each=" detailCommande : ${lstDetailCommande}" class="col-lg-3 mb-4">
     
-        <p class="card-text" th:text ="${detailCommande}"></p>
     
-    </div>
+      
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">prix</th>
+          
+        </tr>
+      </thead>
+      <tbody th:each=" detailCommande : ${lstDetailCommande}" >
+        
+        <tr>
+          <th th:text ="${detailCommande.produit.nom}">3</th>
+          <td colspan="2">Larry the Bird</td>
+          
+        </tr>
+      </tbody>
+    </table>
 
 
     </section>
