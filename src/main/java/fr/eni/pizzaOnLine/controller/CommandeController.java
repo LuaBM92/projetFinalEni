@@ -65,6 +65,7 @@ public class CommandeController {
 			//commandeService.enregistrerDetailCommande(nouveauProduitCommande);
 		//System.err.println(lstDetailCommande);
 }
+		System.err.println(panier);
 		return "redirect:/commander";
 	}
 	
