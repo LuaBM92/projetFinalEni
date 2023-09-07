@@ -72,7 +72,7 @@ public class CommandeController {
 	}
 	
 	@PostMapping("/enregistrerCommande")
-	public String enregistrerCommande(@RequestParam Long id, @RequestParam("quantite") Integer quantite, @ModelAttribute Produit produit, Model model) {
+	public String enregistrerCommande(Model model) {
 		Commande panier = (Commande)model.getAttribute("panier");
 		List<DetailCommande> lstDetailCommande = panier.getDetailsCommande();
 		

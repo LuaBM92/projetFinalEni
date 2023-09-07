@@ -40,6 +40,11 @@
       </tbody>
     </table>
 
+    <form th:action="@{/enregistrerCommande}" method="post" th:object="${panier}">
+      
+      <button type="submit" class="btn btn-primary">Commander</button></td>
+    </form>
+
 
     </section>
   </main>   
