@@ -15,7 +15,7 @@ public class DetailCommande {
 	private Long id;
 	private int quantite;
 	
-	@OneToOne
+	@ManyToOne
 	private Produit produit;
 	
 	@ManyToOne
