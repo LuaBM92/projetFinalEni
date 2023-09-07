@@ -29,11 +29,12 @@
           
         </tr>
       </thead>
-      <tbody th:each=" detailCommande : ${lstDetailCommande}" >
+      <tbody  >
         
-        <tr>
-          <th th:text ="${detailCommande.quantite}"></th>
-          <td colspan="2">Larry the Bird</td>
+        <tr th:each=" detailCommande : ${panier.detailsCommande}">
+          <th th:text ="${detailCommande.produit.nom}"></th>
+          <td th:text ="${detailCommande.quantite}"></td>
+          <td th:text ="${detailCommande.produit.prix}"></td>
           
         </tr>
       </tbody>

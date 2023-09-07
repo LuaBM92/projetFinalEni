@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fr.eni.pizzaOnLine.entity.Produit;
 import fr.eni.pizzaOnLine.services.CommandeService;
 import fr.eni.pizzaOnLine.services.ProduitService;
 
 @Controller
+@SessionAttributes("panier")
 public class HomeController {
 	
 
@@ -27,7 +29,7 @@ public class HomeController {
 	
 	@GetMapping("/panier")
 	public String panier(Model model) {
-		model.addAttribute("lstDetailCommande", commandeService.consulterDetailCommande());
+		//model.addAttribute("lstDetailCommande", commandeService.consulterDetailCommande());
 		return "/home/panier";
 	}
 	

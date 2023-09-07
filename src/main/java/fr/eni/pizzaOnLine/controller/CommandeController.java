@@ -44,7 +44,7 @@ public class CommandeController {
 			model.addAttribute("panier",panier);
 			}
 		
-		List<DetailCommande> lstDetailCommande = panier.getDetailCommande();
+		List<DetailCommande> lstDetailCommande = panier.getDetailsCommande();
 		boolean produitExisteDansPanier = false;
 		for(DetailCommande detailCommande : lstDetailCommande) {
 				if(detailCommande.getProduit().getId().equals(id)) {
@@ -74,7 +74,7 @@ public class CommandeController {
 	@PostMapping("/enregistrerCommande")
 	public String enregistrerCommande(@RequestParam Long id, @RequestParam("quantite") Integer quantite, @ModelAttribute Produit produit, Model model) {
 		Commande panier = (Commande)model.getAttribute("panier");
-		List<DetailCommande> lstDetailCommande = panier.getDetailCommande();
+		List<DetailCommande> lstDetailCommande = panier.getDetailsCommande();
 		
 //		//ENREGISTRER CHAQUE PIZZA DANS LA COMMANDE
 //		for(DetailCommande detailCommande : lstDetailCommande) {

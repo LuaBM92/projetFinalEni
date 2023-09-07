@@ -61,10 +61,10 @@ public class Commande {
 	public void setDateHeurePreparation(LocalDateTime dateHeurePreparation) {
 		this.dateHeurePreparation = dateHeurePreparation;
 	}
-	public List<DetailCommande> getDetailCommande() {
+	public List<DetailCommande> getDetailsCommande() {
 		return lstDetailCommande;
 	}
-	public void setDetailCommande(List<DetailCommande> detailCommande) {
+	public void setDetailsCommande(List<DetailCommande> detailCommande) {
 		this.lstDetailCommande = detailCommande;
 	}
 	public Etat getEtat() {
