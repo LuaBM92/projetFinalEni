@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr" 
     xmlns:th="http://www.thymeleaf.org"
-    th:fragment="layout (titre, content)"
+    th:fragment="layout (title, content)"
     class="h-100">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/bootstrap.css">
-    <title th:title="${titre}">Titre de la page </title>
+    <title th:text="${title}">Titre de la page </title>
 </head>
 <body class="d-flex flex-column h-100">
 <header>
@@ -29,7 +29,7 @@
 </header>
 
 <main >
-    <h1 th:replace="${titre}" class="m-3">Titre de la page</h1>
+    <h1 th:text="${title}" class="m-3">Titre de la page</h1>
     <div th:replace="${content}">
         <p>Contenu de la page</p>
     </div>

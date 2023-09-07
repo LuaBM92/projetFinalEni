@@ -63,7 +63,7 @@ public class CommandeController {
 			nouveauProduitCommande.setQuantite(quantite);
 			lstDetailCommande.add(nouveauProduitCommande);
 			//commandeService.enregistrerDetailCommande(nouveauProduitCommande);
-		
+		//System.err.println(lstDetailCommande);
 }
 		return "redirect:/commander";
 	}
