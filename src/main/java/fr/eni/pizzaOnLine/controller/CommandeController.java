@@ -93,7 +93,7 @@ public class CommandeController {
 //				commandeService.enregistrerDetailCommande(detailCommande);
 //				//produitExisteDansPanier = true;
 //				break;
-//		}
+//		} 
 //	}
 //		if(!produitExisteDansPanier) {
 //			//TODO verifier que la qualtite n'est pas négative

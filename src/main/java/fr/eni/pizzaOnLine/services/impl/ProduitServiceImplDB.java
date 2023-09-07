@@ -47,7 +47,6 @@ public class ProduitServiceImplDB implements ProduitService {
 		produitRepo.save(produit);
 	        }	
 	
-	
 
 	@Override
 	public void supprimerProduit(Long id) {
