@@ -38,7 +38,8 @@ public class ProduitServiceImplDB implements ProduitService {
 
 	@Override
 	public Produit consulterProduitParId(Long id) {
-		return produitRepo.getOne(id);
+	    Optional<Produit> produitOptional = produitRepo.findById(id);
+	    return produitOptional.orElse(null);
 	}
 
 	@Override
