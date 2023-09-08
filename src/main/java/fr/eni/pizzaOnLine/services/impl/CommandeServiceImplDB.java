@@ -1,6 +1,7 @@
 package fr.eni.pizzaOnLine.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import fr.eni.pizzaOnLine.dal.CommandeRepository;
 import fr.eni.pizzaOnLine.dal.DetailCommandeRepository;
 import fr.eni.pizzaOnLine.entity.Commande;
 import fr.eni.pizzaOnLine.entity.DetailCommande;
-import fr.eni.pizzaOnLine.entity.Produit;
+import fr.eni.pizzaOnLine.entity.Etat;
 import fr.eni.pizzaOnLine.services.CommandeService;
 
 @Service
@@ -28,9 +29,10 @@ public class CommandeServiceImplDB  implements CommandeService{
 
 	@Override
 	public Commande consulterCommandeParId(Long id) {
-		return commandeRepo.getOne(id);
-	}
-
+			Optional<Commande> commandeOptional = commandeRepo.findById(id);
+			return commandeOptional.orElse(null);
+		}
+	
 	@Override
 	public void enregistrerCommande(Commande commande) {
 		commandeRepo.save(commande);
@@ -50,9 +52,11 @@ public class CommandeServiceImplDB  implements CommandeService{
 
 	@Override
 	public DetailCommande consulterDetailCommandeParId(Long id) {
-		return detailCommandeRepo.getOne(id);
+		Optional<DetailCommande> detailCommandeOptional = detailCommandeRepo.findById(id);
+		return detailCommandeOptional.orElse(null);
 	}
-
+	
+	
 	@Override
 	public void enregistrerDetailCommande(DetailCommande detailcommande) {
 		detailCommandeRepo.save(detailcommande);
@@ -65,4 +69,12 @@ public class CommandeServiceImplDB  implements CommandeService{
 		
 	}
 
+	@Override
+	public void enregistrerEtat(Etat etat) {
+		commandeRepo.save(etat);
+		
+	}
+
+	
+	
 }

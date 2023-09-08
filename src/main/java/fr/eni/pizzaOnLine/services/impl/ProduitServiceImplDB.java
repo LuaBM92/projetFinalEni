@@ -27,7 +27,8 @@ public class ProduitServiceImplDB implements ProduitService {
 	}
 	
 	public TypeProduit consulterTypeProduitParId(Long id) {
-		return typeProduitRepo.getOne(id);
+		  Optional<TypeProduit> typeProduitOptional = typeProduitRepo.findById(id);
+		    return typeProduitOptional.orElse(null);
 	}
 
 	

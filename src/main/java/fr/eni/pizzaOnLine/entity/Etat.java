@@ -22,10 +22,12 @@ public class Etat {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	public Etat(String libelle, Commande commande) {
+		this.libelle = libelle;
+		this.commande = commande;
+	}
 
 	public Etat(Long id, String libelle, Commande commande) {
-		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.commande = commande;
