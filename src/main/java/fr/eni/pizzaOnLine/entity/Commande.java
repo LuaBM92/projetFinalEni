@@ -25,8 +25,7 @@ public class Commande {
 	//assoc. bidirectionnele donc mapper pour éviter la double table d'intersection
 	@OneToMany(mappedBy="commande", cascade = CascadeType.PERSIST)
 	private List<DetailCommande> lstDetailCommande = new ArrayList<DetailCommande>();
-	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name="commande_id")
+	@ManyToOne()
 	private Etat etat;
 	
 	

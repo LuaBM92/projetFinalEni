@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import ch.qos.logback.classic.Logger;
+import fr.eni.pizzaOnLine.dal.EtatRepository;
 import fr.eni.pizzaOnLine.entity.Commande;
 import fr.eni.pizzaOnLine.entity.DetailCommande;
 import fr.eni.pizzaOnLine.entity.Etat;
@@ -32,6 +33,8 @@ public class CommandeController {
 	private ProduitService produitService;
 	@Autowired
 	private CommandeService commandeService;
+	@Autowired
+	private EtatRepository etatRepo;
 	
 	
 	
@@ -120,15 +123,17 @@ public class CommandeController {
 		
 		//enregistrer la commande?
 		Commande panier = (Commande)model.getAttribute("panier");
-		commandeService.enregistrerCommande(panier);
+		
 		
 
 		
 		//enregistrer l'état?
-		Etat cree = new Etat("creee", panier);
-		cree.setCommande(panier);
+		//Etat cree = new Etat(1L);
+		Etat cree = etatRepo.findById(1L).get();
+		
 		panier.setEtat(cree);
-		commandeService.enregistrerEtat(cree);
+				
+		commandeService.enregistrerCommande(panier);
 		
 		
 		return "redirect:/commander";

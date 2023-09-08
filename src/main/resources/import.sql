@@ -8,3 +8,9 @@ INSERT INTO produit ( nom, description, prix, url_image, type_produit_id) VALUES
 INSERT INTO produit ( nom, description, prix, url_image, type_produit_id) VALUES('Savoyarde Pizzas', 'Crème fraîche légère française, mozzarella, lardons fumés, pommes de terre françaises sautées, Reblochon de Savoie AOP, origan.', 14, 'https://www.dominos.fr/ManagedAssets/FR/product/PSVY/FR_PSVY_fr_hero_12192.png?v-447122871',1);
 
 INSERT INTO produit ( nom, description, prix, url_image, type_produit_id) VALUES('Badoit - 50cl', 'Finement Pétillante, c est l eau de Badoit incontournable, intemporelle. Ses fines bulles empreintes de légèreté et son goût unique et délicat accompagnent tous vos repas au quotidien.', 3 , 'https://www.dominos.fr/ManagedAssets/FR/product/DBAD0500/FR_DBAD0500_fr_hero_3945.png?v-1292294104',2);
+
+INSERT INTO etat (id, libelle) VALUES (1,'Crée');
+INSERT INTO etat (id, libelle) VALUES (2,'Payée');
+INSERT INTO etat (id, libelle) VALUES (3,'Préparée');
+INSERT INTO etat (id, libelle) VALUES (4,'En livraison');
+INSERT INTO etat (id, libelle) VALUES (5,'Livrée');

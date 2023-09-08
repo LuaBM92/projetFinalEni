@@ -30,27 +30,39 @@
 
             
 
-            <table class="table">
+            <table class="table" >
               <thead>
                 <tr>
                   <th scope="col">Nom</th>
                   <th scope="col">Quantité</th>
-                  <th scope="col">prix</th>
-                  
+                  <th scope="col">Prix Unitaire</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
-              <tbody  >
+              <tbody  id="tableauLignes">
                 
-                <tr th:each=" detailCommande : ${panier.detailsCommande}">
+                <tr class="" th:each=" detailCommande : ${panier.detailsCommande}">
                   <th th:text ="${detailCommande.produit.nom}"></th>
-                  <td th:text ="${detailCommande.quantite}"></td>
-                  <td th:text ="${detailCommande.produit.prix}"></td>
-                  
+                  <td  ><i class="fa-solid fa-minus me-3"></i><span class="quantite" th:text ="${detailCommande.quantite}"></span><i class="fa-solid fa-plus ms-3"></i></td>
+                  <td class="prixU" th:text ="${detailCommande.produit.prix}"></td>
+                  <td ><i class="fa-solid fa-trash"></i></td>
+
                 </tr>
               </tbody>
             </table>
+
+            <div>
+              <span>Total : </span>
+              <span id="total">A VENIR</span>
+            </div>
         
             <form th:action="@{/enregistrerCommande}" method="post" th:object="${panier}">
+
+              <div class="mb-3">
+                <label for="dateHeureLivraison"  class="form-label">Date et heure de livraison:</label>
+                 <!--<input type="datetime-local" name="dateHeureLivraison" th:field="*{panier.dateHeureLivraison}"  class="form-control"> -->
+                <input type="datetime-local" name="dateHeureLivraison"   class="form-control">
+            </div>
               
               <button type="submit" class="btn btn-primary">Commander</button></td>
             </form>
@@ -64,12 +76,47 @@
       </div>
       
 
+  <script>
 
-    
+        function calculTotalPanier() {
+
+          let totalCommande = 0;
+
+
+        let tableauLignes = document.getElementById("tableauLignes");
+        let listeTr = tableauLignes.getElementsByTagName("tr");
+        for (const leTr of listeTr) {
+          
+          console.log(leTr.getElementsByClassName('prixU')[0].innerText);
+          let prixU = leTr.getElementsByClassName('prixU')[0].innerText;
+
+          console.log(leTr.getElementsByClassName('quantite')[0].innerText);
+          let quantite = leTr.getElementsByClassName('quantite')[0].innerText;
+
+          let totalLigne = prixU * quantite;
+          console.log(totalLigne);
+          totalCommande += totalLigne;
+                  
+        }
+
+        console.log(totalCommande);
+
+        let affichageTotal = document.getElementById("total");
+
+        affichageTotal.textContent = totalCommande;
+
+        }
+        calculTotalPanier()
+
+
+  </script>
 
 
     </section>
   </main>   
+
+  
+  
 
 </body>
 </html>

@@ -9,28 +9,25 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Etat {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String libelle;
 	
 	//public enum libelle{CREE, PAYEE, PREPAREE, EN_LIVRAISON, LIVREE};
 	
-	@OneToOne
-	private Commande commande;
+	
 	
 	public Etat() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Etat(String libelle, Commande commande) {
-		this.libelle = libelle;
-		this.commande = commande;
+	public Etat(Long id) {
+		
 	}
 
-	public Etat(Long id, String libelle, Commande commande) {
+	public Etat(Long id, String libelle) {
 		this.id = id;
 		this.libelle = libelle;
-		this.commande = commande;
+		
 	}
 
 
@@ -43,17 +40,13 @@ public class Etat {
 		this.id = id;
 	}
 
-	public Commande getCommande() {
-		return commande;
-	}
+	
 
-	public void setCommande(Commande commande) {
-		this.commande = commande;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Etat [id=" + id + ", commande=" + commande + "]";
+		return "Etat [id=" + id + "]";
 	}
 
 	public String getLibelle() {
