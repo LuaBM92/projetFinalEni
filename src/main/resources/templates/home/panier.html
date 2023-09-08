@@ -12,38 +12,60 @@
  <main>
 
    
-    <section>
-      <a href="/carte">Carte des pizzas</a>
-
-    
-    
+    <section >
       
 
+    
+      <div class="container">
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Nom</th>
-          <th scope="col">Quantité</th>
-          <th scope="col">prix</th>
-          
-        </tr>
-      </thead>
-      <tbody  >
+        <div class="row">
+
+          <div class=" mb-4">
+
+            <div class="text-center">
+
+              <a href="/carte">Retour sur la page de choix des pizza</a>
+
+            </div>
+
+            
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Quantité</th>
+                  <th scope="col">prix</th>
+                  
+                </tr>
+              </thead>
+              <tbody  >
+                
+                <tr th:each=" detailCommande : ${panier.detailsCommande}">
+                  <th th:text ="${detailCommande.produit.nom}"></th>
+                  <td th:text ="${detailCommande.quantite}"></td>
+                  <td th:text ="${detailCommande.produit.prix}"></td>
+                  
+                </tr>
+              </tbody>
+            </table>
         
-        <tr th:each=" detailCommande : ${panier.detailsCommande}">
-          <th th:text ="${detailCommande.produit.nom}"></th>
-          <td th:text ="${detailCommande.quantite}"></td>
-          <td th:text ="${detailCommande.produit.prix}"></td>
-          
-        </tr>
-      </tbody>
-    </table>
+            <form th:action="@{/enregistrerCommande}" method="post" th:object="${panier}">
+              
+              <button type="submit" class="btn btn-primary">Commander</button></td>
+            </form>
 
-    <form th:action="@{/enregistrerCommande}" method="post" th:object="${panier}">
+          </div>
+
+
+
+        </div>
+
+      </div>
       
-      <button type="submit" class="btn btn-primary">Commander</button></td>
-    </form>
+
+
+    
 
 
     </section>

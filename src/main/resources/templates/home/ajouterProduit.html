@@ -14,31 +14,43 @@ th:replace="~{layouts/main-layout :: layout('Ajouter un produit', ~{::section})}
     
     <main >
         <section>
-        <div class="m-3">
-            <form th:action="@{/enregistrerProduit}" method="post" th:object="${produit}">
-                <input type="hidden" name="id" th:value="${produit.id}">
-                <div class="mb-3">
-                    <label for="description" class="form-label"> Type du produit:</label>
-                    <select class=" form-select mb-3" th:field="*{typeProduit}">
-                            <option value="1">Pizza</option>
-                            <option value="2">Boisson</option>
-                    </select>
+            <div class="container">
+
+                <div class="row">
+
+                    <div class=" mb-4">
+                        <form th:action="@{/enregistrerProduit}" method="post" th:object="${produit}">
+                            <input type="hidden" name="id" th:value="${produit.id}">
+                            <div class="mb-3">
+                                <label for="description" class="form-label"> Type du produit:</label>
+                                <select class=" form-select mb-3" th:field="*{typeProduit}">
+                                        <option value="1">Pizza</option>
+                                        <option value="2">Boisson</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="nom"  class="form-label">Nom du produit:</label>
+                                <input type="text" name="nom" th:field="*{nom}" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label"> Description du produit:</label>
+                                <input type="text" name="description" th:field="*{description}" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="form-label"> Prix du produit:</label>
+                                <input type="text" name="description" th:field="*{prix}" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary"> Ajouter à la carte des produits</button>
+                        </form>
+                    </div>
+
                 </div>
-                <div class="mb-3">
-                    <label for="nom"  class="form-label">Nom du produit:</label>
-                    <input type="text" name="nom" th:field="*{nom}" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label"> Description du produit:</label>
-                    <input type="text" name="description" th:field="*{description}" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="description" class="form-label"> Prix du produit:</label>
-                    <input type="text" name="description" th:field="*{prix}" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary"> Ajouter à la carte des produits</button>
-            </form>
-        </div>
+
+            </div>
+
+
+
+        
     </section>
     </main>
     
