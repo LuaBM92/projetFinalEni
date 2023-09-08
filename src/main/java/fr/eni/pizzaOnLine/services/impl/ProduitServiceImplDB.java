@@ -35,7 +35,7 @@ public class ProduitServiceImplDB implements ProduitService {
 	public List<Produit> consulterProduits() {
 		return produitRepo.findAll();
 	}
-
+         
 	@Override
 	public Produit consulterProduitParId(Long id) {
 	    Optional<Produit> produitOptional = produitRepo.findById(id);
